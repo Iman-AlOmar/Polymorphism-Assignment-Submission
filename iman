@@ -1,0 +1,109 @@
+```csharp
+
+using System;
+
+ 
+
+namespace InterfaceExample
+
+{
+
+    // Step 1: Create an interface called IQuittable
+
+    public interface IQuittable
+
+    {
+
+        // Defines a method that classes implementing this interface must include
+
+        void Quit();
+
+    }
+
+ 
+
+    // Step 2: Create an Employee class that inherits from IQuittable
+
+    public class Employee : IQuittable
+
+    {
+
+        // Adding a Name property just for demonstration
+
+        public string Name { get; set; }
+
+ 
+
+        // Implementing the Quit() method from IQuittable
+
+        public void Quit()
+
+        {
+
+            // Simple output to demonstrate the method works
+
+            Console.WriteLine(Name + " has quit the company.");
+
+        }
+
+    }
+
+ 
+
+    // Step 3: Main program class
+
+    class Program
+
+    {
+
+        static void Main(string[] args)
+
+        {
+
+            // Create an Employee object and assign a name
+
+            Employee emp = new Employee();
+
+            emp.Name = "John Doe";
+
+ 
+
+            // Step 4: Use polymorphism
+
+            // Create an object of type IQuittable and assign the Employee instance to it
+
+            IQuittable quittable = emp;
+
+ 
+
+            // Call the Quit() method on the IQuittable object
+
+            quittable.Quit();
+
+ 
+
+            // Keep the console open until a key is pressed
+
+            Console.ReadKey();
+
+        }
+
+    }
+
+}
+
+```
+
+ 
+
+---
+
+ 
+
+### ✅ **Explanation**
+
+- `IQuittable` is an **interface** requiring any implementing class to define a `Quit()` method.  
+
+- The `Employee` class **inherits** the `IQuittable` interface and **implements** the `Quit()` method.  
+
+- In `Main()`, polymorphism is demonstrated by declaring
